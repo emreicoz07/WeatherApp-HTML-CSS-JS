@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Türkçe: Belge türünü HTML5 olarak belirler -->
+    <!-- English: Sets the document type as HTML5 -->
+    <meta charset="UTF-8" />
+    <!-- Türkçe: Karakter setini UTF-8 olarak ayarlar -->
+    <!-- English: Sets the character set to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Türkçe: Mobil uyumluluk için görsel alanı ayarları -->
+    <!-- English: Viewport settings for mobile responsiveness -->
+    <title>Weather App with HTML CSS & Javascript || Emre</title>
+    <!-- Türkçe: Sayfa başlığını belirler -->
+    <!-- English: Sets the page title -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Türkçe: Sayfa stilini eklemek için CSS dosyasını bağlar -->
+    <!-- English: Links the CSS file for page styling -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Türkçe: İkonlar için Boxicons CSS kütüphanesini bağlar -->
+    <!-- English: Links the Boxicons CSS library for icons -->
+    <script src="script.js" defer></script>
+    <!-- Türkçe: JavaScript dosyasını gecikmeli olarak bağlar -->
+    <!-- English: Links the JavaScript file with defer loading -->
+  </head>
+  <body>
+    <div class="container">
+      <!-- Türkçe: Ana konteyner, tüm içerik burada yer alır -->
+      <!-- English: Main container, all content resides here -->
+
+      <div class="search-box">
+        <!-- Türkçe: Arama kutusu, şehir aramak için -->
+        <!-- English: Search box for searching cities -->
+        <i class="bx bxs-map"></i>
+        <!-- Türkçe: Harita ikonunu gösterir -->
+        <!-- English: Displays the map icon -->
+        <input type="text" placeholder="Search for a city..." />
+        <!-- Türkçe: Kullanıcının şehir adını girebileceği metin alanı -->
+        <!-- English: Text input field for the user to enter the city name -->
+        <button class="bx bx-search"></button>
+        <!-- Türkçe: Arama butonu -->
+        <!-- English: Search button -->
+      </div>
+
+      <p class="city-hide">city hide</p>
+      <!-- Türkçe: Önceki şehir adını saklayan gizli alan -->
+      <!-- English: Hidden field to store the previous city name -->
+
+      <div class="weather-box">
+        <!-- Türkçe: Hava durumu bilgilerini göstermek için bir alan -->
+        <!-- English: Section to display weather information -->
+        <div class="box">
+          <div class="info-weather">
+            <div class="weather">
+              <img src="images/cloud.png" />
+              <!-- Türkçe: Hava durumu görseli -->
+              <!-- English: Weather condition image -->
+              <p class="temperature">0<span>°C</span></p>
+              <!-- Türkçe: Sıcaklık değeri -->
+              <!-- English: Temperature value -->
+              <p class="description">Broken Clouds</p>
+              <!-- Türkçe: Hava durumu açıklaması -->
+              <!-- English: Weather condition description -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="weather-details">
+        <!-- Türkçe: Hava detayları (nem ve rüzgar hızı) -->
+        <!-- English: Weather details (humidity and wind speed) -->
+
+        <div class="humidity">
+          <!-- Türkçe: Nem detayları için alan -->
+          <!-- English: Section for humidity details -->
+          <i class="bx bx-water"></i>
+          <!-- Türkçe: Nem simgesi -->
+          <!-- English: Icon for humidity -->
+          <div class="text">
+            <div class="info-humidity">
+              <span>0%</span>
+              <!-- Türkçe: Nem yüzdesi -->
+              <!-- English: Humidity percentage -->
+            </div>
+            <p>Humidity</p>
+            <!-- Türkçe: "Nem" metni -->
+            <!-- English: "Humidity" text -->
+          </div>
+        </div>
+
+        <div class="wind">
+          <!-- Türkçe: Rüzgar hızı detayları için alan -->
+          <!-- English: Section for wind speed details -->
+          <i class="bx bx-wind"></i>
+          <!-- Türkçe: Rüzgar simgesi -->
+          <!-- English: Icon for wind -->
+          <div class="text">
+            <div class="info-wind">
+              <span>0Km/h</span>
+              <!-- Türkçe: Rüzgar hızı -->
+              <!-- English: Wind speed -->
+            </div>
+            <p>Wind Speed</p>
+            <!-- Türkçe: "Rüzgar Hızı" metni -->
+            <!-- English: "Wind Speed" text -->
+          </div>
+        </div>
+      </div>
+
+      <div class="not-found">
+        <!-- Türkçe: Hata mesajı için alan (şehir bulunamadığında) -->
+        <!-- English: Section for error message (when city not found) -->
+        <div class="box">
+          <img src="images/404.png" />
+          <!-- Türkçe: Hata görseli -->
+          <!-- English: Error image -->
+          <p>Oops! Location not found!</p>
+          <!-- Türkçe: Hata mesajı metni -->
+          <!-- English: Error message text -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

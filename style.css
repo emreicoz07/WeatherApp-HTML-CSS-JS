@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+/* Türkçe: Google Fonts'tan 'Poppins' yazı tipini içe aktarır */
+/* English: Imports the 'Poppins' font from Google Fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+/* Türkçe: Tüm öğelerin varsayılan kenar boşluklarını kaldırır ve kutu boyutlandırmayı ayarlar */
+/* English: Resets default margins and sets box-sizing */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(images/background.jpg) no-repeat center center/cover;
+  overflow: hidden;
+}
+/* Türkçe: Sayfa gövdesini ortalar, tam ekran arka plan resmi ekler */
+/* English: Centers the body and adds a full-screen background image */
+.container {
+  position: relative;
+  width: 400px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(40px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  color: #fff;
+  transition: height 0.5s ease;
+}
+/* Türkçe: Ana konteynerin boyutlarını ve tasarımını ayarlar */
+/* English: Styles and sizes the main container */
+.search-box {
+  position: relative;
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+/* Türkçe: Arama kutusunu hizalar ve düzenler */
+/* English: Aligns and styles the search box */
+.search-box i {
+  position: absolute;
+  left: 10px;
+  font-size: 28px;
+}
+/* Türkçe: Arama kutusundaki ikonun konumunu ve boyutunu ayarlar */
+/* English: Positions and sizes the icon in the search box */
+.search-box input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  border-radius: 10px;
+  font-size: 22px;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 0 48px 0 42px;
+}
+/* Türkçe: Kullanıcı giriş alanının stilini belirler */
+/* English: Styles the user input field */
+.search-box input::placeholder {
+  color: #fff;
+  text-transform: capitalize;
+}
+/* Türkçe: Placeholder metninin stilini düzenler */
+/* English: Styles the placeholder text */
+.search-box button {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+  padding: 0 40px 0 5px;
+}
+/* Türkçe: Arama butonunun tasarımı */
+/* English: Styles the search button */
+.weather-box {
+  text-align: center;
+  margin: 40px 0;
+}
+/* Türkçe: Hava durumu kutusunu ortalar */
+/* English: Centers the weather box */
+.weather-box,
+.weather-details,
+.not-found {
+  overflow: hidden;
+  visibility: hidden;
+}
+/* Türkçe: Başlangıçta bu bölümleri gizler */
+/* English: Hides these sections initially */
+.weather-box.active,
+.weather-details.active,
+.not-found.active {
+  visibility: visible;
+}
+/* Türkçe: Aktif olduğunda bölümleri görünür hale getirir */
+/* English: Makes sections visible when active */
+.weather-box .box,
+.not-found .box {
+  transform: translateY(-100%);
+}
+/* Türkçe: Kutuları başlangıçta yukarı kaydırır */
+/* English: Initially moves boxes upwards */
+.weather-box.active .box,
+.not-found.active .box {
+  transform: translateY(0%);
+  transition: transform 1s ease;
+  transition-delay: 0.6s;
+}
+/* Türkçe: Aktif olduğunda kutuları aşağı kaydırır */
+/* English: Moves boxes down when active */
+.weather-box .box .info-weather {
+  transform: translateY(-120%);
+}
+/* Türkçe: Hava durumu bilgisini yukarı kaydırır */
+/* English: Moves weather info upwards */
+.container.active .weather-box .box .info-weather,
+.container.active .weather-details .humidity .info-humidity,
+.container.active .weather-details .wind .info-wind {
+  transform: translateY(0%);
+  transition: transform 1s ease;
+}
+/* Türkçe: Bilgi bölümlerini görünür yapmak için animasyon ekler */
+/* English: Adds animation to make info sections visible */
+.weather-box img {
+  width: 60%;
+}
+/* Türkçe: Hava durumu görselinin boyutunu ayarlar */
+/* English: Sets the size of the weather image */
+.weather-box .temperature {
+  position: relative;
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 700;
+  margin: 20px 0 6px -30px;
+}
+/* Türkçe: Sıcaklık metninin stilini belirler */
+/* English: Styles the temperature text */
+.weather-box .temperature span {
+  position: absolute;
+  font-size: 24px;
+  margin-left: 4px;
+}
+
+.weather-box .description {
+  font-size: 22px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+/* Türkçe: Hava durumu açıklama metnini tasarlar */
+/* English: Styles the weather description text */
+.weather-details {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+}
+/* Türkçe: Hava durumu detaylarının düzenini ayarlar */
+/* English: Sets the layout of weather details */
+.weather-details .humidity,
+.weather-details .wind {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  transform: translateY(-100%);
+}
+/* Türkçe: Nem ve rüzgar hızı bölümlerini düzenler */
+/* English: Styles humidity and wind speed sections */
+.weather-details.active .humidity,
+.weather-details.active .wind {
+  transform: translateY(0%);
+  transition: transform 1s ease;
+  transition-delay: 1.2s;
+}
+/* Türkçe: Aktif olduğunda bölümleri yukarı kaydırır */
+/* English: Slides sections upwards when active */
+.weather-details .humidity .info-humidity,
+.weather-details .wind .info-wind {
+  transform: translateY(-100%);
+  overflow: hidden;
+}
+
+.weather-details .humidity {
+  padding-left: 20px;
+  justify-content: flex-start;
+}
+
+.weather-details .wind {
+  padding-right: 20px;
+  justify-content: flex-end;
+}
+
+.weather-details i {
+  font-size: 56px;
+  margin-right: 10px;
+}
+
+.weather-details span {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 500;
+}
+/* Türkçe: Detay metinlerinin stilini belirler */
+/* English: Styles the detail texts */
+.weather-details p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.not-found {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 110px;
+}
+/* Türkçe: Hata mesajı bölümünü ortalar */
+/* English: Centers the error message section */
+.not-found img {
+  width: 65%;
+}
+/* Türkçe: Hata mesajı resminin boyutunu ayarlar */
+/* English: Sets the size of the error message image */
+.not-found p {
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 12px;
+}
+/* Türkçe: Hata mesajı metninin stilini düzenler */
+/* English: Styles the error message text */
+.city-hide {
+  display: none;
+}
+/* Türkçe: Gizli şehir bilgisini görünmez yapar */
+/* English: Hides the hidden city information */
+#clone-info-weather,
+#clone-info-humidity,
+#clone-info-wind {
+  position: absolute;
+  transform: translateY(-100%);
+}
+/* Türkçe: Kopyalanmış bilgi bölümlerini başlangıçta yukarı kaydırır */
+/* English: Moves cloned info sections upwards initially */
+#clone-info-weather .weather {
+  transform: translateY(120%);
+  transition:
+    transform 1s ease,
+    opacity 0s;
+  transition-delay: 0s, 2s;
+}
+.weather-box:not(.active) #clone-info-weather .weather {
+  opacity: 0;
+  transition-delay: 0s;
+}
+.active-clone#clone-info-weather .weather {
+  transform: translateY(0%);
+}
+
+#clone-info-humidity span,
+#clone-info-wind span {
+  transform: translateY(100%);
+  transition: transform 1s ease;
+}
+
+.active-clone#clone-info-humidity span,
+.active-clone#clone-info-wind span {
+  transform: translateY(0%);
+}
